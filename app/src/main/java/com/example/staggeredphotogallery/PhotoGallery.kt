@@ -44,7 +44,7 @@ fun PhotoGalleryScreen(photos: List<PhotoItem>) {
         // Grid of photos
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 120.dp), // Adaptive grid for staggered effect
-            contentPadding = PaddingValues(8.dp),
+            contentPadding = PaddingValues(15.dp),
             modifier = Modifier.fillMaxSize()
         ) {
             items(photos) { photo ->
@@ -57,7 +57,7 @@ fun PhotoGalleryScreen(photos: List<PhotoItem>) {
 @Composable
 fun PhotoItemView(photo: PhotoItem, context: Context) {
     var isExpanded by remember { mutableStateOf(false) }
-    val scale by animateFloatAsState(targetValue = if (isExpanded) 1.1f else 1f, label = "")
+    val scale by animateFloatAsState(targetValue = if (isExpanded) 1.2f else 1f, label = "")
 
     val randomHeightFactor = remember { Random.nextFloat() * 0.5f + 0.75f } // Varying heights (0.75x to 1.25x)
     val resId = getDrawableResId(context, photo.fileName)
@@ -106,3 +106,5 @@ fun PhotoItemView(photo: PhotoItem, context: Context) {
 fun getDrawableResId(context: Context, fileName: String): Int {
     return context.resources.getIdentifier(fileName, "drawable", context.packageName)
 }
+
+

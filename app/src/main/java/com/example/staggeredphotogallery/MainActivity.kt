@@ -19,6 +19,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+
     private fun loadPhotosFromXml(): List<PhotoItem> {
         val photos = mutableListOf<PhotoItem>()
         val parser: XmlResourceParser = resources.getXml(R.xml.photos)
@@ -44,3 +45,5 @@ class MainActivity : ComponentActivity() {
         return photos
     }
 }
+
+
